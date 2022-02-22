@@ -21,7 +21,7 @@
   box-shadow: 
   8px 8px 8px rgb(235, 225, 192);
 }
-
+/* Main button */
 .modal-btn {
   margin: 0 auto !important;
   display: flex;
@@ -33,6 +33,20 @@
   padding: 5px;
   border-color: rgb(40, 133, 232);
   box-shadow: 4px 4px 6px rgb(132, 180, 222);
+  animation: slide ease-in-out 1.5s forwards;
+}
+
+@keyframes slide {
+  0% {
+    opacity:0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    transform: translate(0)
+  }
 }
 
 .modal-btn:hover {
