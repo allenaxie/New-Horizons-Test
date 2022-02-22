@@ -5,6 +5,37 @@
   box-sizing: border-box;
 }
 
+.header {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-btn {
+  margin: 0 auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center !important;
+  background: linear-gradient(to right, rgb(144, 198, 237),#4287ee);
+  cursor: pointer;
+  padding: 5px;
+  border-color: rgb(40, 133, 232);
+  box-shadow: 4px 4px 6px black;
+}
+
+.modal-btn:hover {
+  background: linear-gradient(to right, rgb(144, 177, 237),#4261ee);
+  transform:scale(1.1);
+
+}
+
+.btn-text {
+  font-size: 1.5rem;
+  color: black;
+}
+
 .modal-heading-container {
   display: flex;
   align-items: center !important;

@@ -31,9 +31,11 @@ function App() {
     <body className="main">
       <header className="header">
         {/* Button to open modal */}
-       <Button type="primary" onClick={showModal} className="modal-btn">
-         Click Me!
-       </Button>
+       <button type="button" onClick={showModal} className="modal-btn">
+        <span className="btn-text">
+          Submit Expense
+        </span>
+       </button>
        {/* Modal */}
        <Modal 
        title={
