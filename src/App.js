@@ -35,7 +35,18 @@ function App() {
          Click Me!
        </Button>
        {/* Modal */}
-       <Modal title="Submit Expense" visible={isModalVisible} onOk={closeModal} onCancel={closeModal}>
+       <Modal 
+       title={
+        <div className="modal-heading-container">
+          <img src="https://i.imgur.com/9aRlfA4.png" className="modal-img"/>
+          <span className="modal-heading">
+            Submit Expense
+          </span>
+        </div> 
+        }
+       visible={isModalVisible} 
+       onOk={closeModal} 
+       onCancel={closeModal}>
         <Form
         name="expense-form"
         onFinish={onFinish}
@@ -43,7 +54,7 @@ function App() {
         labelCol={{span:6}}
         >
           <Form.Item
-          label={<span className="form-title-label">Title</span>}
+          label={<span className="form-label">Title</span>}
           name="expense-title"
           rules={[
             {required:true, message: 'Please input a title for your expense.'}
@@ -53,7 +64,8 @@ function App() {
             <Input placeholder="Expense Title"/>
           </Form.Item>
           <Form.Item
-          label={<span>Purchase Date</span>}
+          className="form-date-container"
+          label={<span className="form-label">Purchase Date</span>}
           name="expense-date"
           rules={[
             {required:true}
@@ -64,7 +76,7 @@ function App() {
             />
           </Form.Item>
           <Form.Item
-          label={<span>Currency</span>}
+          label={<span className="form-label">Currency</span>}
           required
           >
             <Select defaultValue="EUR">
@@ -74,7 +86,7 @@ function App() {
             </Select>
           </Form.Item>
           <Form.Item
-          label={<span>Amount</span>}
+          label={<span className="form-label">Amount</span>}
           required
           >
             <InputNumber 
