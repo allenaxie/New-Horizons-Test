@@ -12,6 +12,14 @@
   overflow-y: hidden;
 }
 
+.header {
+  height: 50vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .main-title-container {
   text-align: center;
 }
@@ -37,10 +45,7 @@
   }
 }
 
-.header {
-  height: 50vh;
-  display: block;
-}
+
 
 .ant-modal-content {
   box-shadow: 
