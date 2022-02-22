@@ -8,6 +8,9 @@
 
 Test modal for New Horizons.
 
+![](/Users/allenxie/code/new-horizon-test/public/New-Horizons-Test.gif)
+
+
 ## 💻 Technologies Used 
 
 - HTML5
