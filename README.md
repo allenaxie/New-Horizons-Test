@@ -8,7 +8,7 @@
 
 Test modal for New Horizons.
 
-![](/Users/allenxie/code/new-horizon-test/public/New-Horizons-Test.gif)
+![](https://i.imgur.com/LczQtIa.gif)
 
 
 ## 💻 Technologies Used 
