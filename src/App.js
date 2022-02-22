@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import 'antd/dist/antd.css';
 import './App.css';
 import { useState } from "react";
-import {Form, Input, Button, Modal, DatePicker, Select, InputNumber} from 'antd';
+import {Form, Input, message, Modal, DatePicker, Select, InputNumber, Button} from 'antd';
 import moment from 'moment';
 
 function App() {
@@ -17,8 +17,12 @@ function App() {
   }
 
   // Form
-  function onFinish () {
-    console.log('success!')
+  function onFinish (values) {
+    console.log('success!', values)
+    // Notification message
+    message.success('Expense submitted successfully.');
+    // Close modal
+    setIsModalVisible(false);
   }
   function onFinishFailed (errorInfo) {
     console.log('failed...', errorInfo)
@@ -47,8 +51,18 @@ function App() {
         </div> 
         }
        visible={isModalVisible} 
-       onOk={closeModal} 
-       onCancel={closeModal}>
+       footer = {[
+         <Button type="primary" key="cancel" onClick={closeModal}>
+           Cancel
+         </Button>,
+         <Button form="expense-form" key="submit" htmlType="submit">
+           Submit
+         </Button>,
+       ]}
+      //  okText="Submit"
+      //  onOk={onFinish} 
+       onCancel={closeModal}
+       >
         <Form
         name="expense-form"
         onFinish={onFinish}
@@ -69,9 +83,6 @@ function App() {
           className="form-date-container"
           label={<span className="form-label">Purchase Date</span>}
           name="expense-date"
-          rules={[
-            {required:true}
-          ]}
           >
             <DatePicker
             defaultValue={moment()}
@@ -89,7 +100,9 @@ function App() {
           </Form.Item>
           <Form.Item
           label={<span className="form-label">Amount</span>}
-          required
+          rules={[
+            {required:true, message: 'Please enter an amount.'}
+          ]}
           >
             <InputNumber 
             style={{width:'100%'}} 
@@ -98,6 +111,7 @@ function App() {
             step="10"
             prefix="$"
             precision={2}
+            required
             />
           </Form.Item>
         </Form>

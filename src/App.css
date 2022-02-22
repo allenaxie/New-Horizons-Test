@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+.main {
+  background-color: rgb(45, 45, 45);
+  height: 100vh;
+}
+
 .header {
   height: 50vh;
   display: flex;
@@ -22,13 +27,12 @@
   cursor: pointer;
   padding: 5px;
   border-color: rgb(40, 133, 232);
-  box-shadow: 4px 4px 6px black;
+  box-shadow: 4px 4px 6px rgb(132, 180, 222);
 }
 
 .modal-btn:hover {
   background: linear-gradient(to right, rgb(144, 177, 237),#4261ee);
   transform:scale(1.1);
-
 }
 
 .btn-text {
