@@ -95,6 +95,7 @@ function App() {
             min={1}
             step="10"
             prefix="$"
+            precision={2}
             />
           </Form.Item>
         </Form>
