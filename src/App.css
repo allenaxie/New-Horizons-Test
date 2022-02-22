@@ -8,13 +8,38 @@
 .main {
   background-color: rgb(45, 45, 45);
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.main-title-container {
+  text-align: center;
+}
+
+.main-title {
+  font-size: 4rem;
+  color:white;
+  text-shadow: 2px 2px 2px rgb(40, 131, 228),
+  1px 1px 2px white
+  ;
+  animation: fromRight ease-in-out 1.5s forwards;
+}
+@keyframes fromRight {
+  0% {
+    opacity:0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translate(0.4rem);
+  }
 }
 
 .header {
   height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 
 .ant-modal-content {
@@ -33,10 +58,10 @@
   padding: 5px;
   border-color: rgb(40, 133, 232);
   box-shadow: 4px 4px 6px rgb(132, 180, 222);
-  animation: slide ease-in-out 1.5s forwards;
+  animation: fromLeft ease-in-out 1.5s forwards;
 }
 
-@keyframes slide {
+@keyframes fromLeft {
   0% {
     opacity:0;
     transform: translateX(-10rem);
