@@ -7,16 +7,27 @@ import moment from 'moment';
 
 function App() {
 
+
   // Modal
   const [isModalVisible, setIsModalVisible] = useState(false)
+
   function showModal () {
     setIsModalVisible(true)
   }
+
   function closeModal() {
     setIsModalVisible(false)
   }
 
   // Form
+  // currency symbol
+  const [currency, setCurrency] = useState('€')
+  
+  function handleCurrencyChange (value) {
+    setCurrency(value)
+  }
+  
+  // submit form
   function onFinish (values) {
     console.log('success!', values)
     // Notification message
@@ -24,6 +35,7 @@ function App() {
     // Close modal
     setIsModalVisible(false);
   }
+
   function onFinishFailed (errorInfo) {
     console.log('failed...', errorInfo)
   }
@@ -31,13 +43,15 @@ function App() {
   // Select Options
   const {Option} = Select;
 
+
+
   return (
     <body className="main">
       <header className="header">
         {/* Button to open modal */}
        <button type="button" onClick={showModal} className="modal-btn">
         <span className="btn-text">
-          Submit Expense
+          Create Expense
         </span>
        </button>
        {/* Modal */}
@@ -47,7 +61,7 @@ function App() {
         <div className="modal-heading-container">
           <img src="https://i.imgur.com/9aRlfA4.png" className="modal-img"/>
           <span className="modal-heading">
-            Submit Expense
+            Create Expense
           </span>
         </div> 
         }
@@ -60,8 +74,6 @@ function App() {
            Submit
          </Button>,
        ]}
-      //  okText="Submit"
-      //  onOk={onFinish} 
        onCancel={closeModal}
        >
         <Form
@@ -70,6 +82,7 @@ function App() {
         onFinishFailed={onFinishFailed}
         labelCol={{span:6}}
         >
+          {/* Title Input */}
           <Form.Item
           label={<span className="form-label">Title</span>}
           name="expense-title"
@@ -80,6 +93,7 @@ function App() {
           >
             <Input placeholder="Expense Title"/>
           </Form.Item>
+          {/* Date Input */}
           <Form.Item
           className="form-date-container"
           label={<span className="form-label">Purchase Date</span>}
@@ -89,16 +103,18 @@ function App() {
             defaultValue={moment()}
             />
           </Form.Item>
+          {/* Currency Input */}
           <Form.Item
           label={<span className="form-label">Currency</span>}
           required
           >
-            <Select defaultValue="EUR">
-              <Option value="EUR">EUR</Option>
-              <Option value="USD">USD</Option>
-              <Option value="CNY">CNY</Option>
+            <Select defaultValue="EUR" onChange={handleCurrencyChange}>
+              <Option value="€">EUR</Option>
+              <Option value="$">USD</Option>
+              <Option value="¥">CNY</Option>
             </Select>
           </Form.Item>
+          {/* Amount Input */}
           <Form.Item
           label={<span className="form-label">Amount</span>}
           rules={[
@@ -110,7 +126,7 @@ function App() {
             placeholder="Total Amount"
             min={1}
             step="10"
-            prefix="$"
+            prefix={currency}
             precision={2}
             required
             />
