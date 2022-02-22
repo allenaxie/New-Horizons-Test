@@ -52,7 +52,7 @@ function App() {
     <body className="main">
       <header className="header">
         <div className="main-title-container">
-          <h1 className="main-title">New Horizon Test</h1>
+          <h1 className="main-title">New Horizons Test</h1>
         </div>
         {/* Button to open modal */}
        <button type="button" onClick={showModal} className="modal-btn">
