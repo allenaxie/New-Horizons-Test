@@ -20,6 +20,8 @@ function App() {
   }
 
   // Form
+  const [form] = Form.useForm();
+
   // currency symbol
   const [currency, setCurrency] = useState('€')
   
@@ -34,6 +36,7 @@ function App() {
     message.success('Expense submitted successfully.');
     // Close modal
     setIsModalVisible(false);
+    form.resetFields();
   }
 
   function onFinishFailed (errorInfo) {
@@ -81,6 +84,7 @@ function App() {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         labelCol={{span:6}}
+        form={form}
         >
           {/* Title Input */}
           <Form.Item
@@ -116,6 +120,7 @@ function App() {
           </Form.Item>
           {/* Amount Input */}
           <Form.Item
+          name="currency"
           label={<span className="form-label">Amount</span>}
           rules={[
             {required:true, message: 'Please enter an amount.'}
