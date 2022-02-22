@@ -17,6 +17,11 @@
   align-items: center;
 }
 
+.ant-modal-content {
+  box-shadow: 
+  8px 8px 8px rgb(235, 225, 192);
+}
+
 .modal-btn {
   margin: 0 auto !important;
   display: flex;

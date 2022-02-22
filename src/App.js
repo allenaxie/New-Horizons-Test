@@ -42,6 +42,7 @@ function App() {
        </button>
        {/* Modal */}
        <Modal 
+       className="modal"
        title={
         <div className="modal-heading-container">
           <img src="https://i.imgur.com/9aRlfA4.png" className="modal-img"/>
